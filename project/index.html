@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="pageTitle">Project — Hossam Hassan</title>
+<meta name="description" content="Interior finishing project by Eng. Hossam Hassan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="../home/index.html" class="brand">Hossam Hassan<small>INTERIOR FINISHING ENGINEER</small></a>
+    <nav class="nav-links">
+      <a href="../home/index.html">Home</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../services/index.html">Services</a>
+      <a href="../process/index.html">Process</a>
+      <a href="../about/index.html">About</a>
+      <a href="../contact/index.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+201020575227" class="btn btn-line">01020575227</a>
+      <a href="../contact/index.html" class="btn btn-primary">Get a quote</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero" style="padding-bottom:0;">
+  <div class="wrap">
+    <a href="../projects/index.html" class="btn-ghost" style="margin-bottom:26px; display:inline-block;">&larr; All projects</a>
+    <span class="kicker" id="pKicker">Project</span>
+    <h1 class="display-1" id="pTitle">Loading…</h1>
+  </div>
+</section>
+
+<div class="wrap" style="padding-top:44px;">
+  <div class="project-hero-media reveal">
+    <img id="pCover" src="" alt="">
+  </div>
+</div>
+
+<section>
+  <div class="wrap project-info-grid">
+    <div class="reveal">
+      <span class="kicker">Description</span>
+      <p class="body-text" id="pDescription" style="font-size:1.08rem; max-width:70ch;"></p>
+    </div>
+    <div class="project-facts reveal reveal-delay-1" id="pFacts"></div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="section-head reveal">
+    <div>
+      <span class="kicker">Gallery</span>
+      <h2 class="display-3">The full walkthrough</h2>
+    </div>
+  </div>
+  <div class="gallery" id="pGallery"></div>
+</section>
+
+<section class="section section-dark">
+  <div class="wrap cta-banner reveal">
+    <h2 class="display-2">Want a space finished like this?</h2>
+    <a href="../contact/index.html" class="btn btn-primary" style="background:var(--gold-deep);">Start the conversation</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <h3>Hossam Hassan</h3>
+        <p>Interior finishing for villas, apartments, offices and commercial spaces — full turnkey execution from shell to handover.</p>
+      </div>
+      <div class="footer-col">
+        <b>Navigate</b>
+        <a href="../home/index.html">Home</a>
+        <a href="../projects/index.html">Projects</a>
+        <a href="../services/index.html">Services</a>
+        <a href="../process/index.html">Process</a>
+        <a href="../about/index.html">About</a>
+      </div>
+      <div class="footer-col">
+        <b>Contact</b>
+        <a href="tel:+201020575227">01020575227</a>
+        <a href="https://wa.me/201020575227" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.facebook.com/share/1bg3gErBh6/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hossam Hassan. All rights reserved.</span>
+      <span>Interior finishing, Cairo &amp; Giza</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/data.js"></script>
+<script>
+  const params = new URLSearchParams(location.search);
+  const id = params.get('id') || '1';
+  const project = getProject(id) || PROJECTS[0];
+
+  document.getElementById('pageTitle').textContent = project.title + ' — Hossam Hassan';
+  document.getElementById('pKicker').textContent = `${project.location} · ${project.type}`;
+  document.getElementById('pTitle').textContent = project.title;
+  document.getElementById('pCover').src = project.cover;
+  document.getElementById('pCover').alt = project.title;
+  document.getElementById('pDescription').textContent = project.description;
+
+  document.getElementById('pFacts').innerHTML = project.facts.map(f => `
+    <div class="fact"><span>${f.label}</span><b>${f.value}</b></div>
+  `).join('');
+
+  document.getElementById('pGallery').innerHTML = project.images.map((src, i) => `
+    <a class="g-item" href="${src}" style="transition-delay:${(i % 6) * 0.06}s">
+      <img src="${src}" alt="${project.title} — photo ${i + 1}" loading="lazy">
+    </a>
+  `).join('');
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>

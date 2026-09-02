@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eng. Hossam Hassan — Interior Finishing</title>
+<meta name="description" content="Eng. Hossam Hassan — high-end interior finishing for villas, apartments, offices and commercial spaces. 12+ years of experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="css/style.css">
+<style>
+  html,body{ background:#14110D; height:100%; }
+</style>
+</head>
+<body>
+
+<div class="loader-screen" id="loader">
+  <div class="loader-name" id="loaderName" aria-label="Eng. Hossam Hassan"></div>
+  <div class="loader-role">Interior Finishing Engineer</div>
+  <div class="loader-bar"><span></span></div>
+</div>
+
+<script>
+  const text = "Hossam Hassan";
+  const el = document.getElementById('loaderName');
+  [...text].forEach((ch, i) => {
+    const span = document.createElement('span');
+    span.textContent = ch === ' ' ? '\u00A0' : ch;
+    span.style.animationDelay = (i * 0.045) + 's';
+    el.appendChild(span);
+  });
+
+  const redirect = () => { window.location.href = 'home/index.html'; };
+  setTimeout(redirect, 2400);
+
+  document.getElementById('loader').addEventListener('click', redirect);
+</script>
+</body>
+</html>

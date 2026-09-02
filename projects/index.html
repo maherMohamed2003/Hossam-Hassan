@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Hossam Hassan</title>
+<meta name="description" content="Completed interior finishing projects by Eng. Hossam Hassan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap nav-row">
+    <a href="../home/index.html" class="brand">Hossam Hassan<small>INTERIOR FINISHING ENGINEER</small></a>
+    <nav class="nav-links">
+      <a href="../home/index.html">Home</a>
+      <a href="../projects/index.html">Projects</a>
+      <a href="../services/index.html">Services</a>
+      <a href="../process/index.html">Process</a>
+      <a href="../about/index.html">About</a>
+      <a href="../contact/index.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="tel:+201020575227" class="btn btn-line">01020575227</a>
+      <a href="../contact/index.html" class="btn btn-primary">Get a quote</a>
+    </div>
+    <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <span class="kicker">Selected work</span>
+    <h1 class="display-1">Projects</h1>
+    <p class="lede" style="margin-top:22px;">Every project here was finished from shell to handover — full material selection, execution and site supervision.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div id="projectGrid" class="project-grid"></div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <h3>Hossam Hassan</h3>
+        <p>Interior finishing for villas, apartments, offices and commercial spaces — full turnkey execution from shell to handover.</p>
+      </div>
+      <div class="footer-col">
+        <b>Navigate</b>
+        <a href="../home/index.html">Home</a>
+        <a href="../projects/index.html">Projects</a>
+        <a href="../services/index.html">Services</a>
+        <a href="../process/index.html">Process</a>
+        <a href="../about/index.html">About</a>
+      </div>
+      <div class="footer-col">
+        <b>Contact</b>
+        <a href="tel:+201020575227">01020575227</a>
+        <a href="https://wa.me/201020575227" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://www.facebook.com/share/1bg3gErBh6/" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Hossam Hassan. All rights reserved.</span>
+      <span>Interior finishing, Cairo &amp; Giza</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/data.js"></script>
+<script>
+  const grid = document.getElementById('projectGrid');
+  grid.innerHTML = PROJECTS.map(p => `
+    <a class="project-card reveal in" href="../project/index.html?id=${p.id}">
+      <div class="project-thumb"><img src="${p.cover}" alt="${p.title}" loading="lazy"></div>
+      <div class="project-meta">
+        <h3>${p.title}</h3>
+        <span>${p.area}</span>
+      </div>
+      <div class="project-tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div>
+    </a>
+  `).join('');
+</script>
+<script src="../js/main.js"></script>
+</body>
+</html>
